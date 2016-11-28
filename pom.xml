@@ -138,6 +138,7 @@
 	</dependencies>
 	<profiles>
 		<profile>
+			<id>openshift</id>
 			<build>
 				<finalName>ShayariService</finalName>
 				<plugins>
@@ -145,8 +146,25 @@
 						<artifactId>maven-war-plugin</artifactId>
 						<version>2.3</version>
 						<configuration>
-							<outputDirectory>target</outputDirectory>
+							<outputDirectory>webapps</outputDirectory>
 							<warName>ROOT</warName>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<build>
+				<finalName>ShayariService</finalName>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+						<version>2.2</version>
+						<configuration>
+							<path>/</path>
+							<port>8010</port>
 						</configuration>
 					</plugin>
 				</plugins>
