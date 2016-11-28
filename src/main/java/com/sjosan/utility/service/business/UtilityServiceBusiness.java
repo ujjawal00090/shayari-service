@@ -1,15 +1,12 @@
 package com.sjosan.utility.service.business;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -310,13 +307,14 @@ public class UtilityServiceBusiness {
 
 			for (Likes file : listOfFiles) {
 
-				URL url = new URL(l.getUrl());
+				URL url = new URL(file.getUrl());
 				InputStream is = url.openStream();
 				BufferedReader br = new BufferedReader(new InputStreamReader(is,"UTF-8"));
 				String line=null,str="";
 	             while( (line=br.readLine()) != null) {
 	                    str+=line;  
 	             }
+	             is.close();
 				br.close();
 
 				String catName = file.getName();
