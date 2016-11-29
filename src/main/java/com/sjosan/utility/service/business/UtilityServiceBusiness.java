@@ -314,7 +314,6 @@ public class UtilityServiceBusiness {
 	             while( (line=br.readLine()) != null) {
 	                    str+=line;  
 	             }
-	             is.close();
 				br.close();
 
 				String catName = file.getName();
